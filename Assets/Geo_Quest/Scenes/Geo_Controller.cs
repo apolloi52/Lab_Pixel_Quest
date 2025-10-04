@@ -1,23 +1,72 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-string Variable1 = "Hello ";
+
 
 public class Geo_Controller : MonoBehaviour
 {
+    private Rigidbody2D rb;
+    public float Speed = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        string Variable2 = "Word";
-        Debug.Log("Hello Word");
-        Debug.Log(Variable1 + Variable2);
+      rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        /*
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            rb.velocity += new Vector2(-1, rb.velocity.y);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            rb.velocity += new Vector2(1, rb.velocity.y);
+        }*/
+
+        float xInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2((Speed*xInput), rb.velocity.y);
+
+       
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            rb.velocity += new Vector2(rb.velocity.x, -1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            rb.velocity += new Vector2(rb.velocity.x, 1);
+        }
+
+        /*
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            transform.position += new Vector3(0, 1, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            transform.position += new Vector3(0, -1, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            transform.position += new Vector3(-1, 0, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            transform.position += new Vector3(1, 0, 0);
+        }
+
+        */
+    }
+private void OnTriggerEnter2D(Colider2D collision)
+    {
+        Debug.Log("Hit")
     }
 }
