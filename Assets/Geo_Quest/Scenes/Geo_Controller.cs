@@ -65,8 +65,8 @@ public class Geo_Controller : MonoBehaviour
 
         */
     }
-private void OnTriggerEnter2D(Colider2D collision)
+private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hit")
+        Debug.Log("Hit");
     }
 }
