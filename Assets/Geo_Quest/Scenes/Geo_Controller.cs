@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
 public class Geo_Controller : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float Speed = 1;
-
+    public float Speed = 5;
+    public string nextLevel = "Geo_Quest_Scene_2";
     // Start is called before the first frame update
     void Start()
     {
@@ -44,29 +45,28 @@ public class Geo_Controller : MonoBehaviour
         {
             rb.velocity += new Vector2(rb.velocity.x, 1);
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            transform.position += new Vector3(0, 1, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            transform.position += new Vector3(0, -1, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            transform.position += new Vector3(-1, 0, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            transform.position += new Vector3(1, 0, 0);
-        }
-
-        */
     }
 private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hit");
+        switch (collision.tag)
+        {
+            case "Death":
+                {
+                    string thislevel = SceneManager.GetActiveScene().name;
+                    SceneManager.LoadScene(thislevel);
+                        break;
+                }
+            case "Finish1":
+                {
+                    SceneManager.LoadScene("Geo_Quest_Scene_2");
+                    break;
+                }
+            case "Finish2":
+                {
+                    SceneManager.LoadScene("Geo_Quest_Scene_3");
+                    break;
+                }
+
+        }
     }
 }
