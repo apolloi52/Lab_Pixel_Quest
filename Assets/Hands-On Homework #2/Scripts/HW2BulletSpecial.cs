@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 //Controls the bullet that can hit player on Enemy 
-public class HW2Bullet : MonoBehaviour
+public class HW2BulletS : MonoBehaviour
 {
     //==================================================================================================================
     // Variables 
@@ -14,9 +14,9 @@ public class HW2Bullet : MonoBehaviour
 
     //Movement Controls 
     private Rigidbody2D _rigidbody2D; //The rigidbody that will move the bullet 
-    public float speed = 8;           //Speed at which the bullet moves 
+    public float speed = 20;           //Speed at which the bullet moves 
 
-    //Flag
+    //Flag 
     public bool playerBullet = true; //Is the bullet used by player or enemy 
 
     //==================================================================================================================

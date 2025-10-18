@@ -20,6 +20,7 @@ public class HW2Enemy : MonoBehaviour
     // Tags and Names 
     private string boundsTag = "Bounds";
     private string bulletTag = "Bullet";
+    private string bulletSpecialTag = "BulletSpecial";
     private string gameControllerComponent = "GameController";
 
     // Component 
@@ -33,7 +34,6 @@ public class HW2Enemy : MonoBehaviour
     private void Start()
     {
         _hw2GameController = GameObject.Find(gameControllerComponent).GetComponent<HW2GameController>();
-        StartCoroutine(Death());
     }
 
     public void SetSpeed(Vector3 newSpeed)
@@ -45,13 +45,6 @@ public class HW2Enemy : MonoBehaviour
     // Bullet Set Up  
     //==================================================================================================================
 
-    //Waits till timer is out then destroys the bullet 
-    private IEnumerator Death()
-    {
-        yield return new WaitForSeconds(deathTime);
-        Destroy(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // If it touches the bullet, it updates 
@@ -61,6 +54,13 @@ public class HW2Enemy : MonoBehaviour
             _hw2GameController.UpdateScore();
             //Destorys the bullet
             Destroy(collision.gameObject);
+            //Destorys the enemy 
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag.ToLower() == bulletSpecialTag.ToLower())
+        {
+            //Updates the Score 
+            _hw2GameController.UpdateScore();
             //Destorys the enemy 
             Destroy(gameObject);
         }
