@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 170831620}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2569,7 +2569,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1629501349}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 69e464fab1d1ce84182902094d3e5bf7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
