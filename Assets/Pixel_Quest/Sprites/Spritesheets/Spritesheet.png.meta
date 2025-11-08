@@ -2856,8 +2856,8 @@ TextureImporter:
       name: Spritesheet_130
       rect:
         serializedVersion: 2
-        x: 180
-        y: 36
+        x: 184
+        y: 30
         width: 18
         height: 18
       alignment: 0
